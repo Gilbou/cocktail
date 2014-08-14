@@ -1,6 +1,14 @@
 <h1>Nouveau Cocktail</h1>
 
+<%= form_for(@cocktail) do |f| %>
+  <p><%= f.label :name %> <%= f.text_field :name %></p>
 
+  <p><%= f.label :description %> <%= f.text_area :description %></p>
+
+
+
+  <%= f.submit %>
+<% end %>
 
 
 <%= link_to 'Cancel', cocktails_path %>
