@@ -12,3 +12,8 @@ Cocktail.create(name: "Sex on the beach", description: "Le Sex on the beach est 
 Cocktail.create(name: "Soupe de champagne", description: "La Soupe champenoise est un apéritif traditionnel de la Champagne")
 Cocktail.create(name: "Caiprinha", description: "La caipirinha est un cocktail brésilien préparé à base de cachaça, de sucre de canne et de citron vert.")
 
+Ingredient.create(name: "Beurre")
+Ingredient.create(name: "Cacahuètes")
+Ingredient.create(name: "Caramel")
+Ingredient.create(name: "Miel")
+Ingredient.create(name: "Tabasco")
