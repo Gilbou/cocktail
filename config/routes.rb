@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  root 'cocktails#index'
+  root 'welcome#index'
 
   resources :cocktails, only: [:index, :show, :new, :create] do
     resources :doses, only: [:create, :destroy]

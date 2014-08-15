@@ -1,20 +1,52 @@
-<h1><%= @cocktail.name %></h1>
-<p><%= @cocktail.description %></p>
+<div class="well">
+  <h1><%= @cocktail.name %></h1>
+</div>
 
 
-<h2>Liste des ingrédients</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <p><%= @cocktail.description %></p>
 
-<% @doses.each do |dose| %>
-  <p><%= dose.ingredient.name %> // <%= dose.amount %> <%= link_to 'Destroy', [dose.cocktail, dose], method: :delete %></p>
-<% end %>
+      <h2>Les doses</h2>
 
-<h2>Ajouter un ingrédient à la recette</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Ingrédient</th>
+            <th>Quantité</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+      <% @doses.each do |dose| %>
+        <tr>
+          <td><%= dose.ingredient.name %></td><td><%= dose.amount %></td><td><%= link_to 'Supprimer', [dose.cocktail, dose], method: :delete %></td>
+        </tr>
+      <% end %>
+        </tbody>
+      </table>
 
-<%= form_for([@cocktail, @dose]) do |f| %>
-  <p><%= f.label :ingredient %> <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name %></p>
-  <p><%= f.label :amount %> <%= f.text_field :amount %></p>
-  <%= f.submit %>
-<% end %>
+      <h2>Ajouter un ingrédient</h2>
+
+      <%= form_for([@cocktail, @dose]) do |f| %>
+        <div class="form-group">
+          <%= f.label :ingredient %>
+          <%= f.collection_select :ingredient_id, Ingredient.all, :id, :name, {}, class:"form-control"%>
+        </div>
+        <div class="form-group">
+          <%= f.label :amount %>
+          <%= f.text_field :amount, class:"form-control", placeholder:"ex : 10cl"%>
+        </div>
+        <%= f.submit "Add", class: "btn btn-primary"%>
+      <% end %>
+      <br>
+    </div>
+
+    <div class="col-xs-6">
+      <!-- en attente photo -->
+    </div>
 
 
-<%= link_to 'retour', cocktails_path%>
+  </div>
+</div>

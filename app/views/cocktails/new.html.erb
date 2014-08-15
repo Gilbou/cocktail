@@ -1,12 +1,34 @@
-<h1>Nouveau Cocktail</h1>
-
-<%= form_for(@cocktail) do |f| %>
-  <p><%= f.label :name %> <%= f.text_field :name %></p>
-
-  <p><%= f.label :description %> <%= f.text_area :description %></p>
-
-  <%= f.submit %>
-<% end %>
+<div class="well">
+  <h1>Add a new Cocktail</h1>
+</div>
 
 
-<%= link_to 'Cancel', cocktails_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+        <%= form_for(@cocktail) do |f| %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class:"form-control", placeholder:"ex : Mojito"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :description %>
+            <%= f.text_area :description, class:"form-control", placeholder:"ex : Moment de dégustation, accompagnement..."%>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputFile">Ajouter une photo</label>
+            <input type="file" id="exampleInputFile">
+          </div>
+          <%= f.submit "Submit", class: "btn btn-primary"%>
+        <% end %>
+        <br>
+        <%= link_to 'Cancel', cocktails_path %>
+  </div>
+
+    <div class="col-xs-6">
+
+    </div>
+
+
+  </div>
+</div>
