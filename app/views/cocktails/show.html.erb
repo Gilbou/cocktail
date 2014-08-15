@@ -5,7 +5,7 @@
 <h2>Liste des ingrédients</h2>
 
 <% @doses.each do |dose| %>
-  <p><%= dose.ingredient.name %> // <%= dose.amount %> </p>
+  <p><%= dose.ingredient.name %> // <%= dose.amount %> <%= link_to 'Destroy', [dose.cocktail, dose], method: :delete %></p>
 <% end %>
 
 <h2>Ajouter un ingrédient à la recette</h2>
