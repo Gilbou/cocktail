@@ -1,0 +1,34 @@
+<div class="well">
+  <h1>Modify a Cocktail</h1>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+        <%= form_for @cocktail, html: { multipart: true} do |f| %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class:"form-control", placeholder:"ex : Mojito"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :description %>
+            <%= f.text_area :description, class:"form-control", placeholder:"ex : Moment de dégustation, accompagnement..."%>
+          </div>
+          <div class="form-group">
+            <%= f.label :picture %>
+            <%= f.file_field :picture %>
+          </div>
+          <%= f.submit "Submit", class: "btn btn-primary"%>
+        <% end %>
+        <br>
+        <%= link_to 'Cancel', cocktails_path %>
+  </div>
+
+    <div class="col-xs-6">
+
+    </div>
+
+
+  </div>
+</div>
